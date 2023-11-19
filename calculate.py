@@ -58,8 +58,9 @@ def calculate():
         r[:int(dOS/2)] = m*theta[:int(dOS/2)]**2
         r[int(dOS/2):dOS] = F_Stroke - m*(theta[int(dOS/2):dOS]-dOS)**2
     if RS_info["type"] == "const acc":
+        m = 2*F_Stroke/dRW**2
         r[dOS+dDw:dOS+dDw+int(dRW/2)] = F_Stroke-m*theta[:int(dRW/2)]**2
-        r[dOS+dDw+int(dRW/2):dOS+dDw+dRW] = m*(theta[int(dRW/2):dRW]-dOS)**2
+        r[dOS+dDw+int(dRW/2):dOS+dDw+dRW] = m*(theta[int(dRW/2):dRW]-dRW)**2
 
     # Below formula for cycloidal motion
     rG = F_Stroke/(2*np.pi) # Generating circle radius
